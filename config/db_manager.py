@@ -225,7 +225,7 @@ class DatabaseManager:
                     sql, (emp.id_proyecto, emp.nombre, emp.fecha_inicio)
                 )
                 conn.commit()
-                print(f"Empleado '{emp.nombre}' registrado exitosamente.")
+                print(f"Proyecto '{emp.nombre}' creado exitosamente.")
                 return True
         except sqlite3.IntegrityError:
             print(
@@ -233,5 +233,5 @@ class DatabaseManager:
             )
             return False
         except sqlite3.Error as e:
-            print(f"[ERROR DB] Error al registrar empleado: {e}")
+            print(f"[ERROR DB] Error al crear el proyecto: {e}")
             return False

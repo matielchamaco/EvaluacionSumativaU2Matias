@@ -3,7 +3,7 @@ from datetime import datetime
 class Proyecto:
 
     def __init__(
-            self, id_proyecto: int, nombre: str, fecha_inicio: datetime
+            self, id_proyecto: int, nombre: str, fecha_inicio: datetime | None = None
     ):
 
         self._id_proyecto = id_proyecto

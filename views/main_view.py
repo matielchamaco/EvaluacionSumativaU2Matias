@@ -1,6 +1,7 @@
 import sys
 # Importación de clases previas
 from models.entidades import Empleado, Departamento
+from models.proyecto import Proyecto
 from config.db_manager import DatabaseManager
 from helper.input_helpers import leer_entero, leer_flotante, leer_texto, leer_rut
 
@@ -17,7 +18,7 @@ class MenuApp:
             print("==============================================")
             print("1. Gestión de Empleados")
             print("2. Gestión de Departamentos")
-            print("3. Gestion de Proyectos")
+            print("3. Gestion de Proyecto")
             print("4. Gestion de Registro/Tiempo")
             print("0. Salir del Sistema")
             print("----------------------------------------------")
@@ -169,3 +170,17 @@ class MenuApp:
             return
         for d in deptos:
             print(d)
+
+
+
+    def _menu_proyecto(self):
+        while True:
+            print("\n--- GESTION DE PROYECTOS ---")
+            print("1. Crear nuevo proyecto")
+            print("2. Listar proyectos")
+            print("0. Volver al menú principal")
+
+            opcion = input("Opción: ").strip()
+
+            if opcion == "1":
+                self._crear_proyecto()

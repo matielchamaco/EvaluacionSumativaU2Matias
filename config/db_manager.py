@@ -2,6 +2,7 @@ import sqlite3
 from typing import List, Optional
 # Importamos las clases definidas anteriormente
 from models.entidades import Empleado, Departamento
+from models.proyecto import Proyecto
 
 class DatabaseManager:
     """Clase encargada de gestionar la conexión y operaciones CRUD en SQLite de manera segura."""
@@ -209,3 +210,28 @@ class DatabaseManager:
         except sqlite3.Error as e:
             print(f"[ERROR DB] Error al listar departamentos: {e}")
         return deptos
+
+    # ------------------------------------------
+    # --- CRUD PROYECTOS ---
+    # ------------------------------------------
+
+    def crear_proyecto(self, emp: Proyecto) -> bool:
+        """Inserta un nuevo proyecto utilizando consultas parametrizadas."""
+        sql = "INSERT INTO empleados (id_empleado, nombre, rut, salario) VALUES (?, ?, ?, ?)"
+        try:
+            with self._obtener_conexion() as conn:
+                cursor = conn.cursor()
+                cursor.execute(
+                    sql, (emp.id_proyecto, emp.nombre, emp.fecha_inicio)
+                )
+                conn.commit()
+                print(f"Empleado '{emp.nombre}' registrado exitosamente.")
+                return True
+        except sqlite3.IntegrityError:
+            print(
+                f"[ERROR] El ID {emp.id_proyecto} o nombre '{emp.nombre}' ya está registrado."
+            )
+            return False
+        except sqlite3.Error as e:
+            print(f"[ERROR DB] Error al registrar empleado: {e}")
+            return False

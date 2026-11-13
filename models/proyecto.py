@@ -26,11 +26,11 @@ class Proyecto:
 
     @property
     def id_proyecto(self) -> int:
-        return self._id_gerente
+        return self._id_proyecto
 
     @id_proyecto.setter
     def id_proyecto(self, valor: int):
-        self._id_gerente = valor
+        self._id_proyecto = valor
 
     def __str__(self) -> str:
         proyecto_info = (
@@ -38,4 +38,6 @@ class Proyecto:
         if self._id_empleado is not None
         else "Proyecto sin empleados asignados"
     )
-        return f"Departamento [{self._id_proyecto}]: {self._nombre} (ID Gerente: {proyecto_info})"
+        return f"Proyecto [{self._id_proyecto}]: {self._nombre} (ID Proyecto: {proyecto_info})"
+
+    

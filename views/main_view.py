@@ -17,6 +17,8 @@ class MenuApp:
             print("==============================================")
             print("1. Gestión de Empleados")
             print("2. Gestión de Departamentos")
+            print("3. Gestion de Proyectos")
+            print("4. Gestion de Registro/Tiempo")
             print("0. Salir del Sistema")
             print("----------------------------------------------")
 

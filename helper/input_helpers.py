@@ -32,8 +32,6 @@ def leer_texto(mensaje: str) -> str:
             return valor
         print("Error: Este campo no puede quedar vacío.")
 
-import re
-
 def validar_rut(rut: str) -> bool:
     """Valida que el RUT tenga una longitud de entre 7 y 9 caracteres válidos
 

@@ -183,4 +183,4 @@ class MenuApp:
             opcion = input("Opción: ").strip()
 
             if opcion == "1":
-                self._crear_proyecto()
+                DatabaseManager.crear_proyecto()

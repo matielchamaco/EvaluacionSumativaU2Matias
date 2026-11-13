@@ -215,11 +215,12 @@ class DatabaseManager:
     # --- CRUD PROYECTOS ---
     # ------------------------------------------
 
-    def crear_proyecto(self, emp: Proyecto) -> bool:
+    @staticmethod
+    def crear_proyecto(emp: Proyecto) -> bool:
         """Inserta un nuevo proyecto utilizando consultas parametrizadas."""
         sql = "INSERT INTO empleados (id_empleado, nombre, rut, salario) VALUES (?, ?, ?, ?)"
         try:
-            with self._obtener_conexion() as conn:
+            with _obtener_conexion() as conn:
                 cursor = conn.cursor()
                 cursor.execute(
                     sql, (emp.id_proyecto, emp.nombre, emp.fecha_inicio)
